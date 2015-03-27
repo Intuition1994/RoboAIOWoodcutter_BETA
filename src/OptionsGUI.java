@@ -226,7 +226,7 @@ public class OptionsGUI extends JFrame
         BotUtil.BOT_IS_RUNNING = true;
         BotUtil.paintHandler.timeStarted = System.currentTimeMillis();
         BotUtil.paintHandler.expAtStart = Skills.Skill.WOODCUTTING.getExperience();
-        BotUtil.paintHandler.levelAtStart = Skills.Skill.WOODCUTTING.getExperience();
+        BotUtil.paintHandler.levelAtStart = Skills.Skill.WOODCUTTING.getCurrentLevel();
         BotUtil.WriteMessage("Bot Started.");
 
         setVisible(false);

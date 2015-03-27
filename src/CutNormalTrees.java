@@ -464,6 +464,7 @@ public class CutNormalTrees extends Node implements Task
 
     public void DropLogs()
     {
+        BotUtil.BOTSTATE = BotUtil.BotState.DROPPING_LOGS;
         dropping = true;
 
         if( Inventory.getCount() > 0 )

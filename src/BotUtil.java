@@ -33,7 +33,6 @@ public class BotUtil
         BANKING_LOGS,
         TRAVELING_TO_TREE,
         TRAVELING_TO_BANK,
-        BotUtil,
         DROPPING_LOGS
     }
 
