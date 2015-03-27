@@ -26,50 +26,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BotUtil.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BotUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="4386">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.1046798" vertical-offset="85" max-vertical-offset="4335">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4724#4725#0" expanded="true" />
-                <element signature="e#4793#4794#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoboWoodcutter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaintHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PaintHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1683">
-              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OptionsGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OptionsGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OptionsGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7042424" vertical-offset="558" max-vertical-offset="2210">
-              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
               <folding>
                 <element signature="method#CreateControls#0;class#OptionsGUI#0" expanded="false" />
                 <element signature="method#SetLogsModel#0;class#OptionsGUI#0" expanded="false" />
                 <element signature="method#SetBankModel#0;class#OptionsGUI#0" expanded="false" />
                 <element signature="method#PreparePanel#0;class#OptionsGUI#0" expanded="false" />
+                <element signature="method#OnStart#0;class#OptionsGUI#0" expanded="false" />
+                <element signature="method#GetSelectedLogs#0;class#OptionsGUI#0" expanded="false" />
+                <element signature="method#GetSelectedBank#0;class#OptionsGUI#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CutIvy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CutIvy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1041" max-vertical-offset="1870">
+              <caret line="179" column="9" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
+              <folding>
+                <element signature="method#run#0;class#CutIvy#0" expanded="false" />
+                <element signature="method#DetermineTreeAreaAndPathData#0;class#CutIvy#0" expanded="false" />
+                <element signature="method#MovePlayerBackToArea#0;class#CutIvy#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -78,8 +73,8 @@
       <file leaf-file-name="CutNormalTrees.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CutNormalTrees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2507" max-vertical-offset="3791">
-              <caret line="247" column="13" selection-start-line="247" selection-start-column="13" selection-end-line="247" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2490" max-vertical-offset="3757">
+              <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding>
                 <element signature="e#1570#1605#0" expanded="false" />
                 <element signature="e#6433#6465#0" expanded="false" />
@@ -116,11 +111,11 @@
         <option value="$PROJECT_DIR$/src/com/damnyourobo/rswoodcutter/MainClass.java" />
         <option value="$PROJECT_DIR$/src/com/damnyourobo/rswoodcutter/Tasks/CutNormalTrees.java" />
         <option value="$PROJECT_DIR$/src/com/damnyourobo/rswoodcutter/RoboWoodcutter.java" />
-        <option value="$PROJECT_DIR$/src/CutIvy.java" />
-        <option value="$PROJECT_DIR$/src/BotUtil.java" />
-        <option value="$PROJECT_DIR$/src/CutNormalTrees.java" />
         <option value="$PROJECT_DIR$/src/RoboWoodcutter.java" />
         <option value="$PROJECT_DIR$/src/OptionsGUI.java" />
+        <option value="$PROJECT_DIR$/src/CutIvy.java" />
+        <option value="$PROJECT_DIR$/src/CutNormalTrees.java" />
+        <option value="$PROJECT_DIR$/src/BotUtil.java" />
       </list>
     </option>
   </component>
@@ -486,12 +481,12 @@
       <workItem from="1427452799088" duration="124000" />
       <workItem from="1427459944679" duration="2513000" />
       <workItem from="1427485649402" duration="4848000" />
-      <workItem from="1427490939268" duration="85000" />
+      <workItem from="1427490939268" duration="1176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22164000" />
+    <option name="totallyTimeSpent" value="23255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1255" y="10" width="1213" height="961" extended-state="0" />
@@ -513,6 +508,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26649958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -523,7 +519,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -587,8 +582,6 @@
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -618,6 +611,9 @@
             <element signature="method#SetLogsModel#0;class#OptionsGUI#0" expanded="false" />
             <element signature="method#SetBankModel#0;class#OptionsGUI#0" expanded="false" />
             <element signature="method#PreparePanel#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#OnStart#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#GetSelectedLogs#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#GetSelectedBank#0;class#OptionsGUI#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -644,8 +640,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,8 +650,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -668,8 +660,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -680,8 +670,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -692,8 +680,6 @@
           <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,8 +690,6 @@
           <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,29 +700,7 @@
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="4386">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,10 +712,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1020">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OptionsGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding>
+            <element signature="method#CreateControls#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#SetLogsModel#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#SetBankModel#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#PreparePanel#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#OnStart#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#GetSelectedLogs#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#GetSelectedBank#0;class#OptionsGUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CutNormalTrees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2507" max-vertical-offset="3791">
-          <caret line="247" column="13" selection-start-line="247" selection-start-column="13" selection-end-line="247" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2490" max-vertical-offset="3757">
+          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding>
             <element signature="e#1570#1605#0" expanded="false" />
             <element signature="e#6433#6465#0" expanded="false" />
@@ -766,15 +752,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OptionsGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/CutIvy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7042424" vertical-offset="558" max-vertical-offset="2210">
-          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1041" max-vertical-offset="1870">
+          <caret line="179" column="9" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
           <folding>
-            <element signature="method#CreateControls#0;class#OptionsGUI#0" expanded="false" />
-            <element signature="method#SetLogsModel#0;class#OptionsGUI#0" expanded="false" />
-            <element signature="method#SetBankModel#0;class#OptionsGUI#0" expanded="false" />
-            <element signature="method#PreparePanel#0;class#OptionsGUI#0" expanded="false" />
+            <element signature="method#run#0;class#CutIvy#0" expanded="false" />
+            <element signature="method#DetermineTreeAreaAndPathData#0;class#CutIvy#0" expanded="false" />
+            <element signature="method#MovePlayerBackToArea#0;class#CutIvy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1046798" vertical-offset="85" max-vertical-offset="4335">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

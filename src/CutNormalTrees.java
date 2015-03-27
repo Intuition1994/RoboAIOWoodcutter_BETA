@@ -253,12 +253,10 @@ public class CutNormalTrees extends Node implements Task
             {
                 // if conditions for cutting not met, then turn the camera to face the tree so we can see it.
                 // and hover over it until player is Idle and not in combat.
-                Camera.turnTo(treeToCut);
-                treeToCut.hover();
-
-                if(treeToCut.getLocation().distance(Players.getLocal().getLocation()) > 1d)
+                if(treeToCut.getLocation().distance(Players.getLocal().getLocation()) > 2d)
                 {
                     Walking.findPath(treeToCut);
+                    Camera.turnTo(treeToCut);
                 }
             }
         }

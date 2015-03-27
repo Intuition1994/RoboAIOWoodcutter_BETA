@@ -8,7 +8,7 @@ import java.net.URL;
  */
 public class BotUtil
 {
-    public static String version = "0.40";
+    public static String version = "0.41";
 
     public static RoboWoodcutter main;
     public static PaintHandler paintHandler;
