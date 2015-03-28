@@ -8,7 +8,7 @@ import java.net.URL;
  */
 public class BotUtil
 {
-    public static String version = "0.41";
+    public static String version = "0.42";
 
     public static RoboWoodcutter main;
     public static PaintHandler paintHandler;
@@ -22,7 +22,7 @@ public class BotUtil
     public static BotState BOTSTATE             = BotState.CHECKING;
 
     public static int[] bankIDs             = new int[] { 2012, 2015, 2019, 4456, 4458, 4457, 4459 };
-    public static String[] bankNames           = new String[] { "Banker" };
+    public static String[] bankNames           = new String[] { "Banker", "Counter", "Bank", "Bank chest" };
 
     // region [ Enumerators ]...
     //
@@ -78,30 +78,32 @@ public class BotUtil
                         return false;
                 }
                 //endregion
-
-            //region NOT YET ENABLED...
-//            case OAK:
+            case OAK:
                 //region OAK Logs Banks
-//                switch( bank )
-//                {
-//                    case Clan_Camp:
-//                        return true;
-//                    case Draynor:
-//                        return true;
-//                    default:
-//                        return false;
-//                }
+                switch( bank )
+                {
+                     case Clan_Camp:
+                         return true;
+                    case Draynor:
+                        return true;
+                    default:
+                        return false;
+                }
                 //endregion
-//            case WILLOW:
+            case WILLOW:
                 //region WILLOW Logs Banks
-//                switch( bank )
-//                {
-//                    case Draynor:
-//                        return true;
-//                    default:
-//                        return false;
-//                }
-//                //endregion
+                switch( bank )
+                {
+                    case Draynor:
+                        return true;
+                    default:
+                        return false;
+                }
+                //endregion
+
+
+                //region NOT YET ENABLED...
+//
 //            case MAPLE:
                 //region MAPLE Logs Banks
 //                switch( bank )
@@ -159,7 +161,6 @@ public class BotUtil
 //                }
                 //endregion
             //endregion
-
 
             default:
                 return false;

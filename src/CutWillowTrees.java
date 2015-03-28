@@ -19,12 +19,12 @@ import com.epicbot.api.util.Time;
 /**
  * Created by jt13602 on 25/03/2015.
  */
-public class CutNormalTrees extends Node implements Task
+public class CutWillowTrees extends Node implements Task
 {
 
-    public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.NORMAL;
-    public final int[] treeIDs             = new int[] { 38785, 38760, 38787, 38788, 38783, 93384, 93385, 38786 };
-    public final int[] logsIDs             = new int[] { 1511 };
+    public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.WILLOW;
+    public final int[] treeIDs             = new int[] { 38616, 38627, 58006 };
+    public final int[] logsIDs             = new int[] { 1519, 1520 };
 
     private boolean dropping = false;
     private NPC npcbank = null;
@@ -39,42 +39,40 @@ public class CutNormalTrees extends Node implements Task
     public Tile[] pathToBankToUse = null;
     public Tile[] pathToTreeToUse = null;
 
-    //region [ Grand Exchange Data ]...
+    //region [ Draynor Data ]...
 
-    private final Area BankArea_GrandExchange = new Area(
-            new Tile(3137, 3516, 0),
-            new Tile(3137, 3473, 0),
-            new Tile(3143, 3468, 0),
-            new Tile(3150, 3467, 0),
-            new Tile(3151, 3465, 0),
-            new Tile(3177, 3465, 0),
-            new Tile(3181, 3469, 0),
-            new Tile(3186, 3469, 0),
-            new Tile(3187, 3475, 0),
-            new Tile(3191, 3480, 0),
-            new Tile(3191, 3499, 0),
-            new Tile(3198, 3506, 0),
-            new Tile(3189, 3518, 0)
+    private final Area BankArea_Draynor = new Area(
+            new Tile(3097, 3249, 0),
+            new Tile(3087, 3249, 0),
+            new Tile(3086, 3249, 0),
+            new Tile(3086, 3238, 0),
+            new Tile(3099, 3238, 0)
+    );
+    private final Area TreeArea_Draynor = new Area(
+            new Tile(3077, 3244, 0),
+            new Tile(3087, 3244, 0),
+            new Tile(3092, 3235, 0),
+            new Tile(3093, 3225, 0),
+            new Tile(3093, 3215, 0),
+            new Tile(3086, 3223, 0),
+            new Tile(3081, 3232, 0),
+            new Tile(3077, 3242, 0)
     );
 
-    private final Area TreeArea_GrandExchange = new Area(
-            new Tile(3137, 3516, 0),
-            new Tile(3137, 3473, 0),
-            new Tile(3143, 3468, 0),
-            new Tile(3150, 3467, 0),
-            new Tile(3151, 3465, 0),
-            new Tile(3177, 3465, 0),
-            new Tile(3181, 3469, 0),
-            new Tile(3186, 3469, 0),
-            new Tile(3187, 3475, 0),
-            new Tile(3191, 3480, 0),
-            new Tile(3191, 3499, 0),
-            new Tile(3198, 3506, 0),
-            new Tile(3189, 3518, 0)
-    );
+    private final Tile[] PathToBank_Draynor = new Tile[] {
+            new Tile(3088, 3232, 0),
+            new Tile(3084, 3241, 0),
+            new Tile(3085, 3247, 0),
+            new Tile(3092, 3245, 0),
+            new Tile(3093, 3243, 0)
+    };
 
-    public final Tile[] PathToBank_GrandExchange = new Tile[] {};
-    public final Tile[] PathToTree_GrandExchange = new Tile[] {};
+    private final Tile[] PathToTree_Draynor = new Tile[] {
+            new Tile(3091, 3246, 0),
+            new Tile(3086, 3249, 0),
+            new Tile(3085, 3241, 0),
+            new Tile(3087, 3233, 0)
+    };
 
     //endregion
 
@@ -184,11 +182,11 @@ public class CutNormalTrees extends Node implements Task
     {
         switch(BotUtil.CHOSENBANK)
         {
-            case Grand_Exchange:
-                bankAreaToUse       = BankArea_GrandExchange;
-                treeAreaToUse       = TreeArea_GrandExchange;
-                pathToBankToUse     = PathToBank_GrandExchange;
-                pathToTreeToUse     = PathToTree_GrandExchange;
+            case Draynor:
+                bankAreaToUse       = BankArea_Draynor;
+                treeAreaToUse       = TreeArea_Draynor;
+                pathToBankToUse     = PathToBank_Draynor;
+                pathToTreeToUse     = PathToTree_Draynor;
                 break;
             default:
                 bankAreaToUse       = null;
