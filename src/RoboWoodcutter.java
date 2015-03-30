@@ -18,15 +18,18 @@ import java.awt.*;
         description = "Chops Wood Anywhere, and banks in listed locations.")
 public class RoboWoodcutter extends ActiveScript implements PaintListener, MessageListener
 {
-    PaintHandler paintHandler;
+    private PaintHandler paintHandler;
+    private AntibanThread antiban;
 
     @Override
     public boolean onStart()
     {
         paintHandler = new PaintHandler();
+        antiban      = new AntibanThread();
 
         BotUtil.main = this;
         BotUtil.paintHandler = paintHandler;
+        BotUtil.antiban = antiban;
 
         // Create GUI and Wait for user input.
         SwingUtilities.invokeLater(
@@ -44,9 +47,15 @@ public class RoboWoodcutter extends ActiveScript implements PaintListener, Messa
         provide( new CutNormalTrees() );
         provide( new CutOakTrees() );
         provide( new CutWillowTrees() );
+        provide( new CutMapleTrees() );
         provide( new CutIvy() );
 
         return true;
+    }
+
+    public void onStop()
+    {
+        BotUtil.BOT_IS_RUNNING = false;
     }
 
     @Override

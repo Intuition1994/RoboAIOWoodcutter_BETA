@@ -282,27 +282,30 @@ public class CutNormalTrees extends Node implements Task
 
         for ( SceneObject obj : trees )
         {
-            if( obj.canReach() )
+            if (obj != null)
             {
-                if( treeAreaToUse != null )
+                if (obj.canReach())
                 {
-                    if( !treeAreaToUse.contains(obj.getLocation()) )
+                    if (treeAreaToUse != null)
                     {
-                        continue;
-                    }
-                }
-
-                if( Players.getLocal().getLocation().distance(obj.getLocation()) < curDist )
-                {
-                    for( String action : obj.getDefinition().getActions() )
-                    {
-                        if( action.toLowerCase().contains("chop") )
+                        if (!treeAreaToUse.contains(obj.getLocation()))
                         {
-                            // Tree is valid. Therefore accept this tree.
-                            curDist = (float)Players.getLocal().getLocation().distance(obj.getLocation());
-                            retVal = obj;
-                            actionToUse = action;
-                            break;
+                            continue;
+                        }
+                    }
+
+                    if (Players.getLocal().getLocation().distance(obj.getLocation()) < curDist)
+                    {
+                        for (String action : obj.getDefinition().getActions())
+                        {
+                            if (action.toLowerCase().contains("chop"))
+                            {
+                                // Tree is valid. Therefore accept this tree.
+                                curDist = (float) Players.getLocal().getLocation().distance(obj.getLocation());
+                                retVal = obj;
+                                actionToUse = action;
+                                break;
+                            }
                         }
                     }
                 }

@@ -3,17 +3,12 @@ import com.epicbot.api.concurrent.node.Node;
 import com.epicbot.api.rs3.methods.Walking;
 import com.epicbot.api.rs3.methods.interactive.Players;
 import com.epicbot.api.rs3.methods.node.SceneEntities;
-import com.epicbot.api.rs3.methods.tab.inventory.Inventory;
-import com.epicbot.api.rs3.methods.widget.Bank;
 import com.epicbot.api.rs3.methods.widget.Camera;
 import com.epicbot.api.rs3.wrappers.Area;
 import com.epicbot.api.rs3.wrappers.Tile;
-import com.epicbot.api.rs3.wrappers.map.TilePath;
-import com.epicbot.api.rs3.wrappers.node.Item;
 import com.epicbot.api.rs3.wrappers.node.SceneObject;
 import com.epicbot.api.util.Random;
 import com.epicbot.api.util.Time;
-import javafx.scene.Scene;
 
 /**
  * Created by jt13602 on 27/03/2015.
@@ -25,6 +20,8 @@ public class CutIvy extends Node implements Task
     public String ivyName = "Ivy";      // When cutting Ivy we will use the name only instead of ID's
     private SceneObject ivyToCut = null;
     private String actionToUse = "Chop";
+
+    int idleCounter = 0;    // Using this to prevent the bot clicking on Ivy too much.
 
     // NOTE: In this particular Case, Ivy does not use any of this data except the Tree Area. Since it does not bank, the bot aims
     // to maintain cutting Ivy in the same area.
@@ -159,10 +156,19 @@ public class CutIvy extends Node implements Task
         {
             // Tree is valid, so check if its on screen and player is Idle.
             // Added Player not in combat because in some places lower level players get attacked by highwaymen.
-            if( ivyToCut.isOnScreen() && Players.getLocal().isIdle() && !Players.getLocal().isInCombat() )
+            if( ivyToCut.isOnScreen() && !Players.getLocal().isInCombat() )
             {
-                ivyToCut.interact(actionToUse, ivyToCut.getDefinition().getName());
-                Time.sleep(Random.nextInt(500, 1000));
+                if( !Players.getLocal().isIdle() && idleCounter > 1)
+                {
+                    idleCounter = 0;
+                    ivyToCut.interact(actionToUse, ivyToCut.getDefinition().getName());
+                    Time.sleep(Random.nextInt(500, 1000));
+                }
+                else
+                {
+                    idleCounter += 1;
+                    Time.sleep(250, 500);
+                }
             }
             else
             {

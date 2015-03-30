@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class OptionsGUI extends JFrame
 {
     public static Container             pane;
@@ -228,6 +227,7 @@ public class OptionsGUI extends JFrame
         BotUtil.paintHandler.expAtStart = Skills.Skill.WOODCUTTING.getExperience();
         BotUtil.paintHandler.levelAtStart = Skills.Skill.WOODCUTTING.getCurrentLevel();
         BotUtil.WriteMessage("Bot Started.");
+        BotUtil.antiban.start();
 
         setVisible(false);
     }

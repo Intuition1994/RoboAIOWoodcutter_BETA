@@ -19,12 +19,12 @@ import com.epicbot.api.util.Time;
 /**
  * Created by jt13602 on 25/03/2015.
  */
-public class CutWillowTrees extends Node implements Task
+public class CutMapleTrees extends Node implements Task
 {
 
-    public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.WILLOW;
-    public final int[] treeIDs             = new int[] { 38616, 38627, 58006 };
-    public final int[] logsIDs             = new int[] { 1519, 1520 };
+    public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.MAPLE;
+    public final int[] treeIDs             = new int[] { 51843 };
+    public final int[] logsIDs             = new int[] { 1517, 1518 };
 
     private boolean dropping = false;
     private NPC npcbank = null;
@@ -39,40 +39,44 @@ public class CutWillowTrees extends Node implements Task
     public Tile[] pathToBankToUse = null;
     public Tile[] pathToTreeToUse = null;
 
-    //region [ Draynor Data ]...
+    //region [ Seers Village Data ]...
 
-    private final Area BankArea_Draynor = new Area(
-            new Tile(3097, 3249, 0),
-            new Tile(3087, 3249, 0),
-            new Tile(3086, 3249, 0),
-            new Tile(3086, 3238, 0),
-            new Tile(3099, 3238, 0)
-    );
-    private final Area TreeArea_Draynor = new Area(
-            new Tile(3077, 3244, 0),
-            new Tile(3087, 3244, 0),
-            new Tile(3092, 3235, 0),
-            new Tile(3093, 3225, 0),
-            new Tile(3093, 3215, 0),
-            new Tile(3086, 3223, 0),
-            new Tile(3081, 3232, 0),
-            new Tile(3077, 3242, 0)
+    private final Area BankArea_SeersVillage = new Area(
+            new Tile(2718, 3499, 0),
+            new Tile(2719, 3486, 0),
+            new Tile(2729, 3486, 0),
+            new Tile(2732, 3489, 0),
+            new Tile(2731, 3500, 0)
     );
 
-    private final Tile[] PathToBank_Draynor = new Tile[] {
-            new Tile(3088, 3232, 0),
-            new Tile(3084, 3241, 0),
-            new Tile(3085, 3247, 0),
-            new Tile(3092, 3245, 0),
-            new Tile(3093, 3243, 0)
+    private final Area TreeArea_SeersVillage = new Area(
+            new Tile(2715, 3513, 0),
+            new Tile(2713, 3498, 0),
+            new Tile(2731, 3498, 0),
+            new Tile(2731, 3486, 0),
+            new Tile(2722, 3480, 0),
+            new Tile(2722, 3471, 0),
+            new Tile(2739, 3478, 0),
+            new Tile(2747, 3481, 0),
+            new Tile(2744, 3495, 0),
+            new Tile(2731, 3503, 0),
+            new Tile(2728, 3511, 0)
+    );
+
+    private final Tile[] PathToTree_SeersVillage = new Tile[] {
+            new Tile(2724, 3491, 0),
+            new Tile(2726, 3483, 0),
+            new Tile(2736, 3487, 0),
+            new Tile(2732, 3501, 0)
     };
 
-    private final Tile[] PathToTree_Draynor = new Tile[] {
-            new Tile(3091, 3246, 0),
-            new Tile(3086, 3249, 0),
-            new Tile(3085, 3241, 0),
-            new Tile(3087, 3233, 0)
+    private final Tile[] PathToBank_SeersVillage = new Tile[] {
+            new Tile(2732, 3500, 0),
+            new Tile(2738, 3489, 0),
+            new Tile(2729, 3477, 0),
+            new Tile(2726, 3491, 0)
     };
+
 
     //endregion
 
@@ -182,11 +186,11 @@ public class CutWillowTrees extends Node implements Task
     {
         switch(BotUtil.CHOSENBANK)
         {
-            case Draynor:
-                bankAreaToUse       = BankArea_Draynor;
-                treeAreaToUse       = TreeArea_Draynor;
-                pathToBankToUse     = PathToBank_Draynor;
-                pathToTreeToUse     = PathToTree_Draynor;
+            case Seers_Village:
+                bankAreaToUse       = BankArea_SeersVillage;
+                treeAreaToUse       = TreeArea_SeersVillage;
+                pathToBankToUse     = PathToBank_SeersVillage;
+                pathToTreeToUse     = PathToTree_SeersVillage;
                 break;
             default:
                 bankAreaToUse       = null;

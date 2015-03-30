@@ -12,7 +12,9 @@ public class BotUtil
 
     public static RoboWoodcutter main;
     public static PaintHandler paintHandler;
+    public static AntibanThread antiban;
 
+    public static boolean ANTIBAN_ENABLED       = false;
     public static boolean BOT_IS_RUNNING        = false;
     public static boolean BANK_LOGS             = false;
     public static boolean PICKUP_ORTS           = false;
@@ -101,19 +103,19 @@ public class BotUtil
                 }
                 //endregion
 
+            case MAPLE:
+                //region MAPLE Logs Banks
+                switch( bank )
+                {
+                    case Seers_Village:
+                        return true;
+                    default:
+                        return false;
+                }
+                //endregion
 
                 //region NOT YET ENABLED...
 //
-//            case MAPLE:
-                //region MAPLE Logs Banks
-//                switch( bank )
-//                {
-//                    case Seers_Village:
-//                        return true;
-//                    default:
-//                        return false;
-//                }
-                //endregion
 //            case YEW:
                 //region YEW Logs Banks
 //                switch( bank )
