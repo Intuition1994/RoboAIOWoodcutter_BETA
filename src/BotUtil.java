@@ -23,8 +23,8 @@ public class BotUtil
     public static Banks CHOSENBANK              = Banks.None;
     public static BotState BOTSTATE             = BotState.CHECKING;
 
-    public static int[] bankIDs             = new int[] { 2012, 2015, 2019, 4456, 4458, 4457, 4459 };
-    public static String[] bankNames           = new String[] { "Banker", "Counter", "Bank", "Bank chest" };
+    public static int[] bankIDs             = new int[] { 2012, 2015, 2019, 4456, 4458, 4457, 4459, 9710 };
+    public static String[] bankNames           = new String[] { "Banker", "Counter", "Bank", "Bank chest", "Fremennik Banker" };
 
     // region [ Enumerators ]...
     //
@@ -109,6 +109,8 @@ public class BotUtil
                 switch( bank )
                 {
                     case Seers_Village:
+                        return true;
+                    case Daemonheim:
                         return true;
                     default:
                         return false;

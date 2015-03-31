@@ -48,6 +48,7 @@ public class RoboWoodcutter extends ActiveScript implements PaintListener, Messa
         provide( new CutOakTrees() );
         provide( new CutWillowTrees() );
         provide( new CutMapleTrees() );
+        provide( new CutMapleTreesDaemonheim() );
         provide( new CutIvy() );
 
         return true;

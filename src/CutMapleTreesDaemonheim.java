@@ -74,10 +74,39 @@ public class CutMapleTreesDaemonheim extends Node implements Task
 
     private final int ringID = 15707;
 
-    public Area bankAreaToUse = null;
-    public Area treeAreaToUse = null;
+    private final Area doorEntranceArea = new Area(
+            new Tile(3516, 3677, 0),
+            new Tile(3508, 3676, 0),
+            new Tile(3507, 3655, 0),
+            new Tile(3519, 3662, 0)
+    );
 
-    private final Area doorEntranceArea = null;
+    private final Area bankAreaToUse = new Area(
+            new Tile(3450, 3726, 0),
+            new Tile(3441, 3724, 0),
+            new Tile(3442, 3717, 0),
+            new Tile(3448, 3709, 0),
+            new Tile(3460, 3712, 0),
+            new Tile(3464, 3720, 0),
+            new Tile(3457, 3733, 0)
+    );
+
+    private final Area treeAreaToUse = new Area(
+            new Tile(3507, 3644, 0),
+            new Tile(3497, 3645, 0),
+            new Tile(3487, 3644, 0),
+            new Tile(3482, 3635, 0),
+            new Tile(3482, 3625, 0),
+            new Tile(3482, 3615, 0),
+            new Tile(3483, 3605, 0),
+            new Tile(3493, 3600, 0),
+            new Tile(3503, 3599, 0),
+            new Tile(3513, 3604, 0),
+            new Tile(3518, 3613, 0),
+            new Tile(3520, 3623, 0),
+            new Tile(3520, 3633, 0),
+            new Tile(3512, 3639, 0)
+    );
 
     // endregion
 
@@ -141,7 +170,11 @@ public class CutMapleTreesDaemonheim extends Node implements Task
                 }
                 else
                 {
-                    Walking.walkTilePath(Walking.newTilePath(pathToDungeonEntrance));
+                    if(Players.getLocal().isIdle())
+                    {
+                        Walking.walkTilePath(Walking.newTilePath(pathToDungeonEntrance));
+                        Time.sleep(1000, 2500);
+                    }
                 }
             }
         }
@@ -218,8 +251,11 @@ public class CutMapleTreesDaemonheim extends Node implements Task
                     }
                     else
                     {
-                        Walking.walkTilePath(Walking.newTilePath(pathToBanker));
-                        Time.sleep(1000, 2500);
+                        if(Players.getLocal().isIdle())
+                        {
+                            Walking.walkTilePath(Walking.newTilePath(pathToBanker));
+                            Time.sleep(1000, 2500);
+                        }
                     }
                 }
             }
@@ -316,7 +352,7 @@ public class CutMapleTreesDaemonheim extends Node implements Task
         if (Bank.isOpen())
         {
             // deposit player inventory.
-            Bank.depositInventory();
+            Bank.depositAllExcept(ringID);
             Time.sleep(Random.nextInt(250, 500));
             Bank.close();
         }
@@ -355,8 +391,9 @@ public class CutMapleTreesDaemonheim extends Node implements Task
         if (Bank.isOpen())
         {
             // deposit player inventory.
-            Bank.depositInventory();
+            Bank.depositAllExcept(ringID);
             Time.sleep(Random.nextInt(1000, 2000));
+            Bank.close();
         }
         else
         {

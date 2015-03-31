@@ -122,7 +122,7 @@ public class AntibanThread implements Runnable
         if( choice > 79 && choice < 90 )
         {
             Skills.Skill.WOODCUTTING.hover(2000);
-            Mouse.moveOffScreen();
+            Mouse.moveRandomly(100, 400);
         }
 
         t.sleep(Random.nextInt(1000, 3000));

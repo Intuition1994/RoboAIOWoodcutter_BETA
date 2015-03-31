@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AntibanThread.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AntibanThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AntibanThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="748">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.4162088" vertical-offset="377" max-vertical-offset="1156">
+              <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#start#0;class#AntibanThread#0" expanded="false" />
@@ -38,7 +38,6 @@
                 <element signature="method#CheckIfAntiBanEnabled#0;class#AntibanThread#0" expanded="false" />
                 <element signature="method#RunAntiBan#0;class#AntibanThread#0" expanded="false" />
                 <element signature="method#CameraRandom#0;class#AntibanThread#0" expanded="false" />
-                <element signature="method#MouseRandom#0;class#AntibanThread#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,12 +66,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CutMapleTreesDaemonheim.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CutMapleTreesDaemonheim.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CutMapleTreesDaemonheim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.97622377" vertical-offset="1597" max-vertical-offset="4046">
-              <caret line="153" column="17" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="577" max-vertical-offset="3060">
+              <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
               <folding>
+                <element signature="e#1494#1526#0" expanded="false" />
+                <element signature="method#shouldExecute#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
                 <element signature="method#CutLogs#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
                 <element signature="method#FindClosestTree#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
                 <element signature="method#NPCBankItems#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
@@ -87,16 +88,25 @@
       <file leaf-file-name="BotUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1360">
-              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1962" max-vertical-offset="2686">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-                <element signature="e#1868#1894#0" expanded="false" />
-                <element signature="e#2173#2196#0" expanded="false" />
-                <element signature="e#2546#2572#0" expanded="false" />
+                <element signature="e#1894#1920#0" expanded="false" />
+                <element signature="e#2199#2222#0" expanded="false" />
+                <element signature="e#2572#2598#0" expanded="false" />
                 <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoboWoodcutter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1173">
+              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,15 +136,15 @@
         <option value="$PROJECT_DIR$/src/com/damnyourobo/rswoodcutter/Tasks/CutOakTrees.java" />
         <option value="$PROJECT_DIR$/src/PaintHandler.java" />
         <option value="$PROJECT_DIR$/src/OptionsGUI.java" />
-        <option value="$PROJECT_DIR$/src/RoboWoodcutter.java" />
         <option value="$PROJECT_DIR$/src/CutNormalTrees.java" />
         <option value="$PROJECT_DIR$/src/CutWillowTrees.java" />
         <option value="$PROJECT_DIR$/src/CutOakTrees.java" />
-        <option value="$PROJECT_DIR$/src/AntibanThread.java" />
         <option value="$PROJECT_DIR$/src/CutIvy.java" />
-        <option value="$PROJECT_DIR$/src/BotUtil.java" />
         <option value="$PROJECT_DIR$/src/CutMapleTrees.java" />
+        <option value="$PROJECT_DIR$/src/RoboWoodcutter.java" />
+        <option value="$PROJECT_DIR$/src/BotUtil.java" />
         <option value="$PROJECT_DIR$/src/CutMapleTreesDaemonheim.java" />
+        <option value="$PROJECT_DIR$/src/AntibanThread.java" />
       </list>
     </option>
   </component>
@@ -507,15 +517,15 @@
       <workItem from="1427582524050" duration="1038000" />
       <workItem from="1427583980381" duration="1021000" />
       <workItem from="1427737393603" duration="10663000" />
-      <workItem from="1427792994473" duration="7809000" />
+      <workItem from="1427792994473" duration="11485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49440000" />
+    <option name="totallyTimeSpent" value="53116000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1196" y="57" width="1142" height="864" extended-state="0" />
+    <frame x="-1196" y="57" width="1142" height="864" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -605,7 +615,7 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -744,9 +754,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -791,9 +801,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -814,8 +824,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1088">
           <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
-            <element signature="e#1732#1733#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -827,9 +837,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -894,8 +904,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1071">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
-            <element signature="e#1732#1733#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -907,9 +917,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -955,9 +965,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1023,9 +1033,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1036,8 +1046,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#1732#1733#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1086,9 +1096,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1101,9 +1111,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1116,9 +1126,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1131,9 +1141,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1146,9 +1156,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1161,9 +1171,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1176,9 +1186,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
             <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1201,17 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="549" max-vertical-offset="1207">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#1732#1733#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,37 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AntibanThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="748">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#start#0;class#AntibanThread#0" expanded="false" />
-            <element signature="method#run#0;class#AntibanThread#0" expanded="false" />
-            <element signature="method#CheckIfAntiBanEnabled#0;class#AntibanThread#0" expanded="false" />
-            <element signature="method#RunAntiBan#0;class#AntibanThread#0" expanded="false" />
-            <element signature="method#CameraRandom#0;class#AntibanThread#0" expanded="false" />
-            <element signature="method#MouseRandom#0;class#AntibanThread#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1360">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CanBankLogsHere#0;class#BotUtil#0" expanded="false" />
-            <element signature="e#1868#1894#0" expanded="false" />
-            <element signature="e#2173#2196#0" expanded="false" />
-            <element signature="e#2546#2572#0" expanded="false" />
-            <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CutMapleTrees.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1444" max-vertical-offset="2839">
@@ -1353,17 +1321,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/BotUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1962" max-vertical-offset="2686">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1894#1920#0" expanded="false" />
+            <element signature="e#2199#2222#0" expanded="false" />
+            <element signature="e#2572#2598#0" expanded="false" />
+            <element signature="n#!!doc;n#WriteMessage#0;n#BotUtil#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoboWoodcutter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1173">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CutMapleTreesDaemonheim.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.97622377" vertical-offset="1597" max-vertical-offset="4046">
-          <caret line="153" column="17" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="577" max-vertical-offset="3060">
+          <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
           <folding>
+            <element signature="e#1494#1526#0" expanded="false" />
+            <element signature="method#shouldExecute#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#CutLogs#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#FindClosestTree#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#NPCBankItems#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#SceneObjectBankItems#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#FindNearestNPCBanker#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
             <element signature="method#FindNearestSceneObjectBanker#0;class#CutMapleTreesDaemonheim#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AntibanThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4162088" vertical-offset="377" max-vertical-offset="1156">
+          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#start#0;class#AntibanThread#0" expanded="false" />
+            <element signature="method#run#0;class#AntibanThread#0" expanded="false" />
+            <element signature="method#CheckIfAntiBanEnabled#0;class#AntibanThread#0" expanded="false" />
+            <element signature="method#RunAntiBan#0;class#AntibanThread#0" expanded="false" />
+            <element signature="method#CameraRandom#0;class#AntibanThread#0" expanded="false" />
           </folding>
         </state>
       </provider>
