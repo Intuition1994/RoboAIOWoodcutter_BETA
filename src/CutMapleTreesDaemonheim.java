@@ -4,6 +4,7 @@ import com.epicbot.api.rs3.methods.Walking;
 import com.epicbot.api.rs3.methods.interactive.NPCs;
 import com.epicbot.api.rs3.methods.interactive.Players;
 import com.epicbot.api.rs3.methods.node.SceneEntities;
+import com.epicbot.api.rs3.methods.tab.Skills;
 import com.epicbot.api.rs3.methods.tab.inventory.Inventory;
 import com.epicbot.api.rs3.methods.widget.Bank;
 import com.epicbot.api.rs3.methods.widget.Camera;
@@ -15,11 +16,12 @@ import com.epicbot.api.rs3.wrappers.node.Item;
 import com.epicbot.api.rs3.wrappers.node.SceneObject;
 import com.epicbot.api.util.Random;
 import com.epicbot.api.util.Time;
+import javafx.scene.Scene;
 
 /**
  * Created by jt13602 on 25/03/2015.
  */
-public class CutMapleTrees extends Node implements Task
+public class CutMapleTreesDaemonheim extends Node implements Task
 {
 
     public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.MAPLE;
@@ -34,51 +36,50 @@ public class CutMapleTrees extends Node implements Task
 
     private String actionToUse = "";
 
+    private boolean walkingToBanker = false;
+
+    // region [ Paths and Areas ]...
+
+    private final Tile[] pathToDungeonEntrance = new Tile[]
+    {
+            new Tile(3449, 3707, 0),
+            new Tile(3452, 3697, 0),
+            new Tile(3462, 3695, 0),
+            new Tile(3472, 3691, 0),
+            new Tile(3482, 3687, 0),
+            new Tile(3494, 3687, 0),
+            new Tile(3502, 3694, 0),
+            new Tile(3500, 3684, 0),
+            new Tile(3494, 3676, 0),
+            new Tile(3492, 3666, 0),
+            new Tile(3502, 3662, 0),
+            new Tile(3512, 3665, 0)
+    };
+
+    private final Tile[] pathToBanker = new Tile[]
+    {
+            new Tile(3446, 3700, 0),
+            new Tile(3449, 3702, 0),
+            new Tile(3450, 3707, 0),
+            new Tile(3450, 3716, 0)
+    };
+
+    private final Area teleportationArea = new Area(
+            new Tile(3447, 3704, 0),
+            new Tile(3432, 3704, 0),
+            new Tile(3432, 3691, 0),
+            new Tile(3449, 3691, 0),
+            new Tile(3460, 3703, 0)
+    );
+
+    private final int ringID = 15707;
+
     public Area bankAreaToUse = null;
     public Area treeAreaToUse = null;
-    public Tile[] pathToBankToUse = null;
-    public Tile[] pathToTreeToUse = null;
 
-    //region [ Seers Village Data ]...
+    private final Area doorEntranceArea = null;
 
-    private final Area BankArea_SeersVillage = new Area(
-            new Tile(2718, 3499, 0),
-            new Tile(2719, 3486, 0),
-            new Tile(2729, 3486, 0),
-            new Tile(2732, 3489, 0),
-            new Tile(2731, 3500, 0)
-    );
-
-    private final Area TreeArea_SeersVillage = new Area(
-            new Tile(2715, 3513, 0),
-            new Tile(2713, 3498, 0),
-            new Tile(2731, 3498, 0),
-            new Tile(2731, 3486, 0),
-            new Tile(2722, 3480, 0),
-            new Tile(2722, 3471, 0),
-            new Tile(2739, 3478, 0),
-            new Tile(2747, 3481, 0),
-            new Tile(2744, 3495, 0),
-            new Tile(2731, 3503, 0),
-            new Tile(2728, 3511, 0)
-    );
-
-    private final Tile[] PathToTree_SeersVillage = new Tile[] {
-            new Tile(2724, 3491, 0),
-            new Tile(2726, 3483, 0),
-            new Tile(2736, 3487, 0),
-            new Tile(2732, 3501, 0)
-    };
-
-    private final Tile[] PathToBank_SeersVillage = new Tile[] {
-            new Tile(2732, 3500, 0),
-            new Tile(2738, 3489, 0),
-            new Tile(2729, 3477, 0),
-            new Tile(2726, 3491, 0)
-    };
-
-
-    //endregion
+    // endregion
 
     // --------------------------
     //  Task Execution condition
@@ -90,12 +91,19 @@ public class CutMapleTrees extends Node implements Task
 
         if( !BotUtil.BOT_IS_RUNNING ) return false;
 
-        if( BotUtil.CHOSENLOGS == myLogs )
+        if( BotUtil.CHOSENLOGS == myLogs && BotUtil.BANK_LOGS )
         {
             if( Players.getLocal() != null )
             {
-                if( BotUtil.CHOSENBANK != BotUtil.Banks.Daemonheim )
+                if( BotUtil.CHOSENBANK == BotUtil.Banks.Daemonheim )
                 {
+                    if( Skills.Skill.DUNGEONEERING.getCurrentLevel() < 30 )
+                    {
+                        BotUtil.WriteMessage("You do not have a high enough level to enter this resource dungeon.");
+                        BotUtil.BOT_IS_RUNNING = false;
+                        return false;
+                    }
+
                     retVal = true;
                 }
             }
@@ -114,131 +122,110 @@ public class CutMapleTrees extends Node implements Task
         if(npcbank != null) { useNPCBank = true; }
         else { useNPCBank = false; }
 
-        if( BotUtil.BANK_LOGS )
-        {
-            DetermineTreeAreaAndPathData();
-        }
-
         // If the player inventory is not full.
-        if( Inventory.getCount() < 28 && !dropping )
+        if( Inventory.getCount() < 28)
         {
-            // We want to cut logs.
-            // Is the player in the Tree Area
-            if( treeAreaToUse != null )
+            walkingToBanker = false;
+            if (treeAreaToUse.contains(Players.getLocal().getLocation()))
             {
-                if (treeAreaToUse.contains(Players.getLocal().getLocation()))
-                {
-                    // if they are, start chopping tree's
-                    CutLogs();
-                }
-                else
-                {
-                    // If they aren't, start walking there.
-                    WalkToTrees();
-                }
+                // if they are, start chopping tree's
+                CutLogs();
             }
             else
             {
-                CutLogs();
+                if( doorEntranceArea.contains(Players.getLocal().getLocation()) )
+                {
+                    // At the dungeon entrance.
+                    SceneObject door = SceneEntities.getNearest("Mysterious entrance");
+                    door.interact("Enter");
+                }
+                else
+                {
+                    Walking.walkTilePath(Walking.newTilePath(pathToDungeonEntrance));
+                }
             }
         }
         else
         {
-            if( BotUtil.BANK_LOGS )
+            // First Check they are at the bank?
+            if (bankAreaToUse.contains(Players.getLocal().getLocation()))
             {
-                // First Check they are at the bank?
-                if (bankAreaToUse.contains(Players.getLocal().getLocation()))
+                if (useNPCBank)
                 {
-                    if (useNPCBank)
+                    if (npcbank != null)
                     {
-                        if (npcbank != null)
-                        {
-                            NPCBankItems();
-                        }
-                        else
-                        {
-                            BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 NPC");
-                        }
+                        NPCBankItems();
                     }
                     else
                     {
-                        if (sceneObjectBank != null)
-                        {
-                            SceneObjectBankItems();
-                        }
-                        else
-                        {
-                            BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 SceneObject");
-                        }
+                        BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 NPC");
                     }
                 }
                 else
                 {
-                    // if not, time to walk there.
-                    WalkToBank();
+                    if (sceneObjectBank != null)
+                    {
+                        SceneObjectBankItems();
+                    }
+                    else
+                    {
+                        BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 SceneObject");
+                    }
                 }
             }
             else
             {
-                DropLogs();
+                // if not, time to walk there.
+                if(!walkingToBanker)
+                {
+                    if(Players.getLocal().isIdle())
+                    {
+                        Inventory.getItem(ringID).interact("Teleport to Daemonheim");
+                        Time.sleep(2000);
+                    }
+
+                    if(teleportationArea.contains(Players.getLocal().getLocation()))
+                    {
+                        walkingToBanker = true;
+                    }
+                }
+                else
+                {
+                    if( bankAreaToUse.contains(Players.getLocal().getLocation()))
+                    {
+                        if (useNPCBank)
+                        {
+                            if (npcbank != null)
+                            {
+                                NPCBankItems();
+                            }
+                            else
+                            {
+                                BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 NPC");
+                            }
+                        }
+                        else
+                        {
+                            if (sceneObjectBank != null)
+                            {
+                                SceneObjectBankItems();
+                            }
+                            else
+                            {
+                                BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 1 SceneObject");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Walking.walkTilePath(Walking.newTilePath(pathToBanker));
+                        Time.sleep(1000, 2500);
+                    }
+                }
             }
         }
     }
 
-    public void DetermineTreeAreaAndPathData()
-    {
-        switch(BotUtil.CHOSENBANK)
-        {
-            case Seers_Village:
-                bankAreaToUse       = BankArea_SeersVillage;
-                treeAreaToUse       = TreeArea_SeersVillage;
-                pathToBankToUse     = PathToBank_SeersVillage;
-                pathToTreeToUse     = PathToTree_SeersVillage;
-                break;
-            default:
-                bankAreaToUse       = null;
-                treeAreaToUse       = null;
-                pathToBankToUse     = null;
-                pathToTreeToUse     = null;
-                break;
-        }
-    }
-
-    //region [ Walking Methods ] ...
-
-    public void WalkToTrees()
-    {
-        try
-        {
-            BotUtil.BOTSTATE = BotUtil.BotState.TRAVELING_TO_TREE;
-            TilePath path = Walking.newTilePath(pathToTreeToUse);
-            Walking.walkTilePath(path);
-            Time.sleep(Random.nextInt(2500, 5000));
-        }
-        catch (Exception e)
-        {
-            BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 2" );
-            BotUtil.WriteMessage("HUGE ERROR HERE!: Error is: " + e.getMessage() );
-        }
-    }
-
-    public void WalkToBank()
-    {
-        try
-        {
-            BotUtil.BOTSTATE = BotUtil.BotState.TRAVELING_TO_BANK;
-            TilePath path = Walking.newTilePath(pathToBankToUse);
-            Walking.walkTilePath(path);
-            Time.sleep(Random.nextInt(2500, 5000));
-        }
-        catch (Exception e)
-        {
-            BotUtil.WriteMessage("HUGE ERROR HERE!: " + this.getClass().getName() + " Cannot Find the Bank, Contact DamnYouRobo ASAP. CODE 3" );
-            BotUtil.WriteMessage("HUGE ERROR HERE!: Error is: " + e.getMessage() );
-        }
-    }
-
-    //endregion
 
     public void CutLogs()
     {
@@ -477,21 +464,4 @@ public class CutMapleTrees extends Node implements Task
         return retValue;
     }
     //endregion
-
-    public void DropLogs()
-    {
-        BotUtil.BOTSTATE = BotUtil.BotState.DROPPING_LOGS;
-        dropping = true;
-
-        if( Inventory.getCount() > 0 )
-        {
-            Item i = Inventory.getItem(logsIDs);
-            i.interact("Drop");
-            Time.sleep(Random.nextInt(500, 1000));
-        }
-        else
-        {
-            dropping = false;
-        }
-    }
 }

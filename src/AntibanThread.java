@@ -62,12 +62,10 @@ public class AntibanThread implements Runnable
     {
         if(!BotUtil.ANTIBAN_ENABLED) return;
 
-        BotUtil.WriteMessage("Antiban Itterator Value: " + itterator);
         if( itterator > 4 )
         {
             itterator = 0;
             int choice = Random.nextInt(0, 100);
-            BotUtil.WriteMessage("Anitban choice: " + choice);
 
             if( choice < 20 )
             {
@@ -98,7 +96,6 @@ public class AntibanThread implements Runnable
             newPitch = 90;
         }
 
-        BotUtil.WriteMessage("Anitban Camera choice: " + newYaw + " " + newPitch);
         Camera.setAngle(newYaw);
         Camera.setPitch(newPitch);
         t.sleep(Random.nextInt(3000, 5000));
@@ -107,7 +104,6 @@ public class AntibanThread implements Runnable
     public void MouseRandom() throws InterruptedException
     {
         int choice = Random.nextInt(0, 100);
-        BotUtil.WriteMessage("Anitban mouse choice: " + choice);
         // Move mouse to random Position.
         // Move mouse to chat window.
         // Move mouse to skills tab

@@ -291,8 +291,6 @@ public class CutOakTrees extends Node implements Task
         SceneObject retVal = null;
         double curDist = 99999999d;
 
-        BotUtil.WriteMessage("Found " + possibletrees.length + " possible trees");
-
         for ( SceneObject obj : possibletrees ) // for each Object in the trees array.
         {
             String name = obj.getDefinition().getName();

@@ -57,7 +57,8 @@ public class BotUtil
         Grand_Exchange,
         Seers_Village,
         Draynor,
-        Clan_Camp
+        Clan_Camp,
+        Daemonheim
     }
     //
     //endregion

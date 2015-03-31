@@ -19,9 +19,11 @@ public class CutIvy extends Node implements Task
     public BotUtil.PossibleLogs myLogs = BotUtil.PossibleLogs.IVY;
     public String ivyName = "Ivy";      // When cutting Ivy we will use the name only instead of ID's
     private SceneObject ivyToCut = null;
+    private SceneObject _ivyToCut = null;   // last Ivy to cut.
     private String actionToUse = "Chop";
 
-    int idleCounter = 0;    // Using this to prevent the bot clicking on Ivy too much.
+    int idleCounter = 20;    // Using this to prevent the bot clicking on Ivy too much.
+    // idleCounter starts high to meet the interaction for chopping conditions. Before being set to zero.
 
     // NOTE: In this particular Case, Ivy does not use any of this data except the Tree Area. Since it does not bank, the bot aims
     // to maintain cutting Ivy in the same area.
@@ -83,7 +85,7 @@ public class CutIvy extends Node implements Task
             }
         }
 
-        ivyToCut = SceneEntities.getNearest(ivyName);
+        ivyToCut = FindClosestTree();
 
         if( ivyToCut != null )
         {
@@ -100,6 +102,63 @@ public class CutIvy extends Node implements Task
                 MovePlayerBackToArea();
             }
         }
+    }
+
+    public SceneObject FindClosestTree()
+    {
+        SceneObject[] possibletrees = SceneEntities.getLoaded();
+        SceneObject retVal = null;
+        double curDist = 99999999d;
+
+        for ( SceneObject obj : possibletrees ) // for each Object in the trees array.
+        {
+            String name = obj.getDefinition().getName();
+            String[] actions = obj.getDefinition().getActions();
+
+            if( ivyAreaToUse != null )
+            {
+                if( !ivyAreaToUse.contains(obj.getLocation()))
+                {
+                    // We are using the tree Area to find trees,
+                    // if the code reaches this point, then the obj being checked is not in the
+                    // tree area being used.
+                    // therefore continue to the next object.
+                    continue;
+                }
+                // if not using an area, this section of code is skipped.
+            }
+
+            if( name.toLowerCase().contains("ivy") )
+            {
+                if( actions != null ) // make sure the actions array exists for this object.
+                {
+                    if( actions.length > 0) // Check it has at least one element. (i.e there is something to check.)
+                    {
+                        // filter out all items that do not have "oak" in their name.
+                        for (String s : actions)
+                        {
+                            if( s != null ) // make sure the string exists?????
+                            {
+                                if (s.toLowerCase().contains("chop"))
+                                {
+                                    // Filter out any objects that do not allow the player to chop at them.
+                                    double dist = obj.getLocation().distance(Players.getLocal().getLocation());
+
+                                    if( dist < curDist )    // check its closer than the current closest.
+                                    {
+                                        curDist = dist;     // set new distance for closest.
+                                        retVal = obj;       // for now just accept the last one found.
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        return retVal;
     }
 
     public void InitialSetup()
@@ -151,6 +210,16 @@ public class CutIvy extends Node implements Task
     {
         BotUtil.BOTSTATE = BotUtil.BotState.CHOPPING_TREE;
 
+        if( _ivyToCut != ivyToCut )
+        {
+            if (_ivyToCut == null)
+            {
+                idleCounter = 0;
+            }
+
+            _ivyToCut = ivyToCut;
+        }
+
         // Now that we've found a valid Tree to cut.
         if( ivyToCut != null )
         {
@@ -158,7 +227,7 @@ public class CutIvy extends Node implements Task
             // Added Player not in combat because in some places lower level players get attacked by highwaymen.
             if( ivyToCut.isOnScreen() && !Players.getLocal().isInCombat() )
             {
-                if( !Players.getLocal().isIdle() && idleCounter > 1)
+                if( Players.getLocal().isIdle() && idleCounter > Random.nextInt(10, 15))
                 {
                     idleCounter = 0;
                     ivyToCut.interact(actionToUse, ivyToCut.getDefinition().getName());
@@ -166,8 +235,12 @@ public class CutIvy extends Node implements Task
                 }
                 else
                 {
-                    idleCounter += 1;
-                    Time.sleep(250, 500);
+                    if (Players.getLocal().isIdle())
+                    {
+                        idleCounter += 1;
+                        Time.sleep(250, 500);
+
+                    }
                 }
             }
             else
