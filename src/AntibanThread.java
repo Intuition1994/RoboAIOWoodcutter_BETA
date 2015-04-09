@@ -1,11 +1,6 @@
 import com.epicbot.api.input.Mouse;
-import com.epicbot.api.rs3.methods.Widgets;
-import com.epicbot.api.rs3.methods.interactive.Players;
 import com.epicbot.api.rs3.methods.tab.Skills;
 import com.epicbot.api.rs3.methods.widget.Camera;
-import com.epicbot.api.rs3.wrappers.node.item.WidgetChildItem;
-import com.epicbot.api.rs3.wrappers.widget.Widget;
-import com.epicbot.api.rs3.wrappers.widget.WidgetChild;
 import com.epicbot.api.util.Random;
 
 /**
@@ -41,7 +36,7 @@ public class AntibanThread implements Runnable
             }
             catch (InterruptedException e)
             {
-                BotUtil.WriteMessage( threadName + " Error: " + e.getMessage() );
+                BotUtil.WriteMessage(threadName + " Error: " + e.getMessage());
             }
         }
     }
@@ -62,24 +57,19 @@ public class AntibanThread implements Runnable
     {
         if(!BotUtil.ANTIBAN_ENABLED) return;
 
-        if( itterator > 4 )
+        int choice = Random.nextInt(0, 100);
+
+        if( choice < 10 )
         {
-            itterator = 0;
-            int choice = Random.nextInt(0, 100);
-
-            if( choice < 20 )
-            {
-                CameraRandom();
-            }
-
-            if( choice < 30 )
-            {
-                MouseRandom();
-            }
+            CameraRandom();
         }
 
-        itterator += 1;
-        t.sleep(Random.nextInt(500, 750));
+        if( choice > 9 && choice < 50 )
+        {
+            MouseRandom();
+        }
+
+        t.sleep(Random.nextInt(2000, 3500));
     }
 
     public void CameraRandom() throws InterruptedException
@@ -87,9 +77,9 @@ public class AntibanThread implements Runnable
         int newYaw = Camera.getYaw() + Random.nextInt(-180, 180);
         int newPitch = Camera.getPitch() + Random.nextInt(-45, 45);
 
-        if( newPitch < 0 )
+        if( newPitch < 30 )
         {
-            newPitch = 0;
+            newPitch = Random.nextInt(25, 30);
         }
         else if( newPitch > 90)
         {
@@ -114,12 +104,12 @@ public class AntibanThread implements Runnable
             Mouse.moveRandomly(100, 400);
         }
 
-        if( choice > 9 && choice < 80 )
+        if( choice > 9 && choice < 90 )
         {
             Mouse.moveOffScreen();
         }
 
-        if( choice > 79 && choice < 90 )
+        if( choice > 89 && choice < 90 )
         {
             Skills.Skill.WOODCUTTING.hover(2000);
             Mouse.moveRandomly(100, 400);

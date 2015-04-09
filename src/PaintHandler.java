@@ -1,3 +1,4 @@
+import com.epicbot.api.input.Mouse;
 import com.epicbot.api.rs3.methods.tab.Skills;
 
 import java.awt.*;
@@ -44,6 +45,11 @@ public class PaintHandler
     {
         if( g == null ) return;
 
+        g.setColor( new Color(255, 0, 0, 100) );
+        g.drawLine(Mouse.getX() - 2000, Mouse.getY(), Mouse.getX() + 2000, Mouse.getY());
+        g.drawLine(Mouse.getX(), Mouse.getY() - 2000, Mouse.getX(), Mouse.getY() + 2000);
+
+
         CalculateData();
 
         g.setColor(color1);
@@ -89,7 +95,6 @@ public class PaintHandler
 
         expPerHour = (int) (expGained / (timeRunning / (1000f * 60f * 60f)));
         logsPerHour = (int) (logsCut / (timeRunning / (1000f * 60f * 60f)));
-
 
         if (expPerHour != 0)
         {

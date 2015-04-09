@@ -1,29 +1,18 @@
 import com.epicbot.api.concurrent.Task;
 import com.epicbot.api.concurrent.node.Node;
-import com.epicbot.api.rs3.methods.Walking;
-import com.epicbot.api.rs3.methods.interactive.NPCs;
 import com.epicbot.api.rs3.methods.interactive.Players;
-import com.epicbot.api.rs3.methods.node.SceneEntities;
 import com.epicbot.api.rs3.methods.tab.inventory.Inventory;
-import com.epicbot.api.rs3.methods.widget.Bank;
-import com.epicbot.api.rs3.methods.widget.Camera;
 import com.epicbot.api.rs3.wrappers.Area;
 import com.epicbot.api.rs3.wrappers.Tile;
-import com.epicbot.api.rs3.wrappers.interactive.NPC;
-import com.epicbot.api.rs3.wrappers.map.TilePath;
-import com.epicbot.api.rs3.wrappers.node.Item;
-import com.epicbot.api.rs3.wrappers.node.SceneObject;
-import com.epicbot.api.util.Random;
-import com.epicbot.api.util.Time;
 
 /**
  * Created by jt13602 on 25/03/2015.
  */
-public class CutMapleTrees extends Node implements Task
+public class CutYewTrees extends Node implements Task
 {
-    public BotUtil.PossibleLogs myLogs  = BotUtil.PossibleLogs.MAPLE;
-    public final String treeName        = "maple";
-    public final int[] logsIDs          = new int[] { 1517 };
+    public BotUtil.PossibleLogs myLogs  = BotUtil.PossibleLogs.YEW;
+    public final String treeName        = "yew";
+    public final int[] logsIDs          = new int[] { 1515 };
     private String actionToUse          = "chop";
 
     public Area bankAreaToUse           = null;
@@ -31,46 +20,42 @@ public class CutMapleTrees extends Node implements Task
     public Tile[] pathToBankToUse       = null;
     public Tile[] pathToTreeToUse       = null;
 
-    //region [ Seers Village Data ]...
+    //region [ Seer's Village Data ]...
 
-    private final Area BankArea_SeersVillage = new Area(
-            new Tile(2718, 3499, 0),
-            new Tile(2719, 3486, 0),
-            new Tile(2729, 3486, 0),
-            new Tile(2732, 3489, 0),
-            new Tile(2731, 3500, 0)
+    private final Area TreeArea_GrandExchange = new Area(
+            new Tile(3197, 3508, 0),
+            new Tile(3197, 3495, 0),
+            new Tile(3228, 3494, 0),
+            new Tile(3228, 3508, 0)
     );
 
-    private final Area TreeArea_SeersVillage = new Area(
-            new Tile(2715, 3513, 0),
-            new Tile(2713, 3498, 0),
-            new Tile(2731, 3498, 0),
-            new Tile(2731, 3486, 0),
-            new Tile(2722, 3480, 0),
-            new Tile(2722, 3471, 0),
-            new Tile(2739, 3478, 0),
-            new Tile(2747, 3481, 0),
-            new Tile(2744, 3495, 0),
-            new Tile(2731, 3503, 0),
-            new Tile(2728, 3511, 0)
+    private final Area BankArea_GrandExchange = new Area(
+            new Tile(3189, 3516, 0),
+            new Tile(3166, 3516, 0),
+            new Tile(3165, 3466, 0),
+            new Tile(3189, 3467, 0)
     );
 
-    private final Tile[] PathToTree_SeersVillage = new Tile[] {
-            new Tile(2724, 3491, 0),
-            new Tile(2726, 3483, 0),
-            new Tile(2736, 3487, 0),
-            new Tile(2732, 3501, 0)
+    private final Tile[] PathToTree_GrandExchange = new Tile[] {
+            new Tile(3179, 3497, 0),
+            new Tile(3180, 3487, 0),
+            new Tile(3181, 3477, 0),
+            new Tile(3188, 3485, 0),
+            new Tile(3191, 3495, 0),
+            new Tile(3201, 3496, 0),
+            new Tile(3210, 3501, 0),
+            new Tile(3213, 3503, 0)
     };
 
-    private final Tile[] PathToBank_SeersVillage = new Tile[] {
-            new Tile(2732, 3500, 0),
-            new Tile(2738, 3489, 0),
-            new Tile(2729, 3477, 0),
-            new Tile(2726, 3491, 0)
+    private final Tile[] PathToBank_GrandExchange = new Tile[] {
+            new Tile(3211, 3500, 0),
+            new Tile(3201, 3500, 0),
+            new Tile(3193, 3493, 0),
+            new Tile(3180, 3489, 0)
     };
-
-
     //endregion
+
+
 
     // --------------------------
     //  Task Execution condition
@@ -82,14 +67,11 @@ public class CutMapleTrees extends Node implements Task
 
         if( !BotUtil.BOT_IS_RUNNING ) return false;
 
-        if( BotUtil.CHOSENLOGS == myLogs && BotUtil.CHOSENBANK != BotUtil.Banks.Daemonheim)
+        if( BotUtil.CHOSENLOGS == myLogs )
         {
             if( Players.getLocal() != null )
             {
-                if( BotUtil.CHOSENBANK != BotUtil.Banks.Daemonheim )
-                {
-                    retVal = true;
-                }
+                retVal = true;
             }
         }
 
@@ -153,11 +135,11 @@ public class CutMapleTrees extends Node implements Task
     {
         switch(BotUtil.CHOSENBANK)
         {
-            case Seers_Village:
-                bankAreaToUse       = BankArea_SeersVillage;
-                treeAreaToUse       = TreeArea_SeersVillage;
-                pathToBankToUse     = PathToBank_SeersVillage;
-                pathToTreeToUse     = PathToTree_SeersVillage;
+            case Grand_Exchange:
+                bankAreaToUse       = BankArea_GrandExchange;
+                treeAreaToUse       = TreeArea_GrandExchange;
+                pathToBankToUse     = PathToBank_GrandExchange;
+                pathToTreeToUse     = PathToTree_GrandExchange;
                 break;
             default:
                 bankAreaToUse       = null;

@@ -19,11 +19,11 @@ import com.epicbot.api.util.Time;
 /**
  * Created by jt13602 on 25/03/2015.
  */
-public class CutMapleTrees extends Node implements Task
+public class CutMagicTrees extends Node implements Task
 {
-    public BotUtil.PossibleLogs myLogs  = BotUtil.PossibleLogs.MAPLE;
-    public final String treeName        = "maple";
-    public final int[] logsIDs          = new int[] { 1517 };
+    public BotUtil.PossibleLogs myLogs  = BotUtil.PossibleLogs.MAGIC;
+    public final String treeName        = "magic";
+    public final int[] logsIDs          = new int[] { 1513 };
     private String actionToUse          = "chop";
 
     public Area bankAreaToUse           = null;
@@ -31,45 +31,49 @@ public class CutMapleTrees extends Node implements Task
     public Tile[] pathToBankToUse       = null;
     public Tile[] pathToTreeToUse       = null;
 
-    //region [ Seers Village Data ]...
-
-    private final Area BankArea_SeersVillage = new Area(
-            new Tile(2718, 3499, 0),
-            new Tile(2719, 3486, 0),
-            new Tile(2729, 3486, 0),
-            new Tile(2732, 3489, 0),
-            new Tile(2731, 3500, 0)
-    );
+    //region [ Seer's Village Data ]...
 
     private final Area TreeArea_SeersVillage = new Area(
-            new Tile(2715, 3513, 0),
-            new Tile(2713, 3498, 0),
-            new Tile(2731, 3498, 0),
-            new Tile(2731, 3486, 0),
-            new Tile(2722, 3480, 0),
-            new Tile(2722, 3471, 0),
-            new Tile(2739, 3478, 0),
-            new Tile(2747, 3481, 0),
-            new Tile(2744, 3495, 0),
-            new Tile(2731, 3503, 0),
-            new Tile(2728, 3511, 0)
+            new Tile(2693, 3404, 0),
+            new Tile(2694, 3391, 0),
+            new Tile(2709, 3390, 0),
+            new Tile(2711, 3411, 0)
+    );
+
+    private final Area BankArea_SeersVillage = new Area(
+            new Tile(2717, 3500, 0),
+            new Tile(2718, 3484, 0),
+            new Tile(2734, 3484, 0),
+            new Tile(2733, 3502, 0)
     );
 
     private final Tile[] PathToTree_SeersVillage = new Tile[] {
-            new Tile(2724, 3491, 0),
-            new Tile(2726, 3483, 0),
-            new Tile(2736, 3487, 0),
-            new Tile(2732, 3501, 0)
+            new Tile(2725, 3489, 0),
+            new Tile(2725, 3479, 0),
+            new Tile(2725, 3469, 0),
+            new Tile(2725, 3459, 0),
+            new Tile(2721, 3449, 0),
+            new Tile(2719, 3439, 0),
+            new Tile(2717, 3429, 0),
+            new Tile(2716, 3419, 0),
+            new Tile(2714, 3409, 0),
+            new Tile(2711, 3399, 0),
+            new Tile(2702, 3399, 0)
     };
 
     private final Tile[] PathToBank_SeersVillage = new Tile[] {
-            new Tile(2732, 3500, 0),
-            new Tile(2738, 3489, 0),
-            new Tile(2729, 3477, 0),
-            new Tile(2726, 3491, 0)
+            new Tile(2701, 3400, 0),
+            new Tile(2706, 3409, 0),
+            new Tile(2712, 3417, 0),
+            new Tile(2717, 3428, 0),
+            new Tile(2719, 3438, 0),
+            new Tile(2722, 3448, 0),
+            new Tile(2724, 3458, 0),
+            new Tile(2725, 3468, 0),
+            new Tile(2726, 3478, 0),
+            new Tile(2727, 3488, 0),
+            new Tile(2725, 3492, 0)
     };
-
-
     //endregion
 
     // --------------------------
@@ -82,14 +86,11 @@ public class CutMapleTrees extends Node implements Task
 
         if( !BotUtil.BOT_IS_RUNNING ) return false;
 
-        if( BotUtil.CHOSENLOGS == myLogs && BotUtil.CHOSENBANK != BotUtil.Banks.Daemonheim)
+        if( BotUtil.CHOSENLOGS == myLogs )
         {
             if( Players.getLocal() != null )
             {
-                if( BotUtil.CHOSENBANK != BotUtil.Banks.Daemonheim )
-                {
-                    retVal = true;
-                }
+                retVal = true;
             }
         }
 
