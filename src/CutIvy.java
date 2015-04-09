@@ -227,7 +227,7 @@ public class CutIvy extends Node implements Task
             // Added Player not in combat because in some places lower level players get attacked by highwaymen.
             if( ivyToCut.isOnScreen() && !Players.getLocal().isInCombat() )
             {
-                if( Players.getLocal().isIdle() && idleCounter > Random.nextInt(8, 12))
+                if( Players.getLocal().isIdle() && idleCounter > Random.nextInt(10, 15))
                 {
                     idleCounter = 0;
                     ivyToCut.interact(actionToUse, ivyToCut.getDefinition().getName());
@@ -239,6 +239,7 @@ public class CutIvy extends Node implements Task
                     {
                         idleCounter += 1;
                         Time.sleep(250, 500);
+
                     }
                 }
             }

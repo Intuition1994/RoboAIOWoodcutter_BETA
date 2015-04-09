@@ -17,7 +17,6 @@ public class OptionsGUI extends JFrame
     public static JComboBox<String>     cboLogs, cboBank;
     public static JLabel                lblWhichLogs, lblWhichBank;
     public static JCheckBox             cboxPickupOrts, cboxBankLogs;
-    public static JTextField            tfPattern;
 
     public RoboWoodcutter bot;
 
@@ -37,9 +36,9 @@ public class OptionsGUI extends JFrame
     public void CreateTheFrame()
     {
         //Set its size to 250x300 pixels
-        setSize(250, 500);
-        setMaximumSize( new Dimension(250, 500) );
-        setMinimumSize(new Dimension( 250, 500));
+        setSize(250, 300);
+        setMaximumSize( new Dimension(250, 300) );
+        setMinimumSize(new Dimension(250, 300));
         setResizable(false);
 
         pane = getContentPane();
@@ -107,15 +106,6 @@ public class OptionsGUI extends JFrame
         cboBank.setEnabled(false);
         cboBank.setBounds(insets.left + 5, itterator*30, getWidth() - 20, 25);
 
-        itterator += 1;
-        tfPattern = new JTextField();
-        tfPattern.setLocation(0, itterator*30);
-        tfPattern.setSize( new Dimension(insets.left + 5, getWidth() - 10) );
-        tfPattern.setMinimumSize( new Dimension(insets.left + 5, getWidth() - 10) );
-        tfPattern.setMaximumSize( new Dimension(insets.left + 5, getWidth() - 10) );
-        tfPattern.setEnabled(false);
-        tfPattern.setBounds(insets.left + 5, itterator*30, getWidth() - 20, 25);
-
         itterator += 3;
         btnStart        = new JButton("Start");
         btnStart.setLocation(0, itterator*30);
@@ -143,37 +133,8 @@ public class OptionsGUI extends JFrame
             }
         });
 
-        cboLogs.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if( cboLogs.getSelectedItem().toString().equals("Elder") )
-                {
-                    tfPattern.setEnabled(true);
-                }
-                else
-                {
-                    tfPattern.setEnabled(false);
-                }
-            }
-        });
-
         SetLogsModel();
         SetBankModel();
-    }
-
-    public void PreparePanel()
-    {
-        pane.add(lblWhichLogs);
-        pane.add(cboLogs);
-
-        pane.add(cboxPickupOrts);
-
-        pane.add(cboxBankLogs);
-        pane.add(lblWhichBank);
-        pane.add(cboBank);
-        pane.add(tfPattern);
-
-        pane.add(btnStart);
     }
 
     public void SetLogsModel()
@@ -235,46 +196,40 @@ public class OptionsGUI extends JFrame
         }
     }
 
+    public void PreparePanel()
+    {
+        pane.add(lblWhichLogs);
+        pane.add(cboLogs);
+
+        pane.add(cboxPickupOrts);
+
+        pane.add(cboxBankLogs);
+        pane.add(lblWhichBank);
+        pane.add(cboBank);
+
+        pane.add(btnStart);
+    }
+
     public void OnStart()
     {
-        try
-        {
-            BotUtil.BANK_LOGS       = cboxBankLogs.isSelected();
-            BotUtil.PICKUP_ORTS     = cboxPickupOrts.isSelected();
-            BotUtil.CHOSENLOGS      = GetSelectedLogs();
-            BotUtil.CHOSENBANK      = GetSelectedBank();
+        BotUtil.BANK_LOGS       = cboxBankLogs.isSelected();
+        BotUtil.PICKUP_ORTS     = cboxPickupOrts.isSelected();
+        BotUtil.CHOSENLOGS      = GetSelectedLogs();
+        BotUtil.CHOSENBANK      = GetSelectedBank();
 
-            BotUtil.WriteMessage("Bank Logs:   " + BotUtil.BANK_LOGS);
-            BotUtil.WriteMessage("Pickup Orts: " + BotUtil.PICKUP_ORTS);
-            BotUtil.WriteMessage("Chosen Logs: " + BotUtil.CHOSENLOGS.toString());
-            BotUtil.WriteMessage("Chosen Bank: " + BotUtil.CHOSENBANK.toString());
+        BotUtil.WriteMessage("Bank Logs:   " + BotUtil.BANK_LOGS);
+        BotUtil.WriteMessage("Pickup Orts: " + BotUtil.PICKUP_ORTS);
+        BotUtil.WriteMessage("Chosen Logs: " + BotUtil.CHOSENLOGS.toString());
+        BotUtil.WriteMessage("Chosen Bank: " + BotUtil.CHOSENBANK.toString());
 
-            BotUtil.BOT_IS_RUNNING = true;
-            BotUtil.paintHandler.timeStarted = System.currentTimeMillis();
-            BotUtil.paintHandler.expAtStart = Skills.Skill.WOODCUTTING.getExperience();
-            BotUtil.paintHandler.levelAtStart = Skills.Skill.WOODCUTTING.getCurrentLevel();
+        BotUtil.BOT_IS_RUNNING = true;
+        BotUtil.paintHandler.timeStarted = System.currentTimeMillis();
+        BotUtil.paintHandler.expAtStart = Skills.Skill.WOODCUTTING.getExperience();
+        BotUtil.paintHandler.levelAtStart = Skills.Skill.WOODCUTTING.getCurrentLevel();
+        BotUtil.WriteMessage("Bot Started.");
+        BotUtil.antiban.start();
 
-            if( BotUtil.CHOSENLOGS == BotUtil.PossibleLogs.CRYSTAL || BotUtil.CHOSENLOGS == BotUtil.PossibleLogs.ELDER )
-            {
-                // Pattern Reading:
-                String[] patternString = tfPattern.getText().replace(" ", "").split(",");
-                BotUtil.patternArray = new int[patternString.length];
-
-                for (int i = 0; i < patternString.length; i++)
-                {
-                    BotUtil.patternArray[i] = Integer.parseInt(patternString[i]);
-                }
-            }
-            BotUtil.antiban.start();
-            BotUtil.main.StartBot();
-            BotUtil.WriteMessage("Bot Started.");
-            setVisible(false);
-        }
-        catch (Exception e )
-        {
-            e.printStackTrace();
-            BotUtil.WriteMessage("Startup Failed, Please check parametres are correct and try again, or contact DamnYouRobo on EB Forums. ");
-        }
+        setVisible(false);
     }
 
     public BotUtil.PossibleLogs GetSelectedLogs()
